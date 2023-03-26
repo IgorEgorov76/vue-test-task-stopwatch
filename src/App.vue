@@ -1,17 +1,12 @@
 <template>
   <div class="main-container">
-    <div class="main-block"
-         id="main-block"
-    >
-      <new-timer v-for="timer in arrayTimers" :key="timer" />
-
-      <div class="main-block__new-element"
-           id="addBlock"
-      >
-        <button class="main-block__new-element-btn"
+    <div class="main-block">
+      <new-timer v-for="timer in arrayTimers" :key="timer"/>
+      <div class="main-block__element">
+        <button class="main-block__element-btn"
                 v-on:click="addTimer"
         >
-          <img src="./assets/img/main-block__new-element.svg">
+          <img src="./assets/img/main-block__element-item-new.svg">
         </button>
       </div>
     </div>
@@ -19,7 +14,6 @@
 </template>
 
 <script>
-
 import newTimer from "./components/newTimer.vue";
 
 export default {
@@ -37,8 +31,7 @@ export default {
   methods: {
     addTimer() {
       this.arrayTimers.push(`timer${this.index + 1}`);
-      this.index = this.index + 1;
-      console.log(this.arrayTimers)
+      this.index = this.index + 1
     }
   }
 }
@@ -59,7 +52,7 @@ export default {
   margin-right: auto;
   background-color: #353638;
   padding-top: 72px;
-  padding-bottom: 27px;
+  padding-bottom: 72px;
 }
 
 .main-block {
@@ -78,17 +71,6 @@ export default {
     color: #9E9E9E;
    }
 
-  &__new-element {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 225px;
-    height: 120px;
-    background-color: #696969;
-    color: #9E9E9E;
-    margin-bottom: 45px;
-  }
-
   &__element-item {
     display: flex;
     justify-content: center;
@@ -105,11 +87,13 @@ export default {
     font-size: 22px;
   }
   
-  &__element-item-button-play-pause {
+  &__element-item-button-play,
+  &__element-item-button-pause {
     margin-right: 48px;
     cursor: pointer;
     background-color: #696969;
     border: none;
+    width: 20px;
   }
 
   &__element-item-button-reset {
@@ -118,7 +102,7 @@ export default {
     border: none;
   }
 
-  &__new-element-btn {
+  &__element-btn {
     cursor: pointer;
     height: 120px;
     width: 225px;
